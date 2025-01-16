@@ -26,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.yoel.testcallapi.network.product.model.ProductResponse
 
 @Composable
@@ -46,7 +47,7 @@ fun ProductListScreen(
 @Composable
 fun CompleteProductListScreen(productList: List<ProductResponse>){
     LazyColumn(
-        modifier = Modifier.fillMaxWidth().padding(innerPaddingValues),
+        modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -89,10 +90,12 @@ fun CompleteProductListScreen(productList: List<ProductResponse>){
                             color = Color.Gray
                         )
                         Column(
-                            modifier = Modifier.fillParentMaxSize().padding(start = ),
+                            modifier = Modifier.fillParentMaxSize().padding(start = 5.dp, bottom = 10.dp),
                             horizontalAlignment = Alignment.End
                         ) {
+                            AsyncImage(
 
+                            )
                         }
                     }
                 }
