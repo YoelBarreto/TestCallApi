@@ -75,28 +75,24 @@ fun CompleteProductListScreen(productList: List<ProductResponse>){
                     ),
                     modifier = Modifier.width(260.dp).padding(bottom = 25.dp)
                 ) {
-                    Row(
-                        modifier = Modifier.padding(10.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ){
-                        Text(
-                            text = product.title,
-                            fontSize = TextUnit(5.5f, TextUnitType.Em),
-                            modifier = Modifier.weight(1f)
+                    Text(
+                        text = product.title,
+                        fontSize = TextUnit(5.5f, TextUnitType.Em)
+                    )
+                    HorizontalDivider(
+                        modifier = Modifier.padding(bottom = 10.dp),
+                        thickness = 1.dp,
+                        color = Color.Gray
+                    )
+                    Column(
+                        modifier = Modifier.fillParentMaxSize().padding(start = 5.dp, bottom = 10.dp),
+                        horizontalAlignment = Alignment.End
+                    ) {
+                        AsyncImage(
+                            model = product.thumbnail,
+                            contentDescription = "Imagen del producto",
+                            modifier = Modifier.padding(end = 10.dp)
                         )
-                        HorizontalDivider(
-                            modifier = Modifier.padding(bottom = 10.dp),
-                            thickness = 1.dp,
-                            color = Color.Gray
-                        )
-                        Column(
-                            modifier = Modifier.fillParentMaxSize().padding(start = 5.dp, bottom = 10.dp),
-                            horizontalAlignment = Alignment.End
-                        ) {
-                            AsyncImage(
-
-                            )
-                        }
                     }
                 }
             }
