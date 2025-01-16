@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -60,7 +61,7 @@ fun CompleteProductListScreen(productList: List<ProductResponse>){
                fontSize = TextUnit(8f, TextUnitType.Em)
            )
        }
-        if (productList.isNotEmpty()) {
+        if (productList.isEmpty()) {
             item{
                 Text(
                     modifier = Modifier.padding(top = 25.dp),
@@ -86,8 +87,9 @@ fun CompleteProductListScreen(productList: List<ProductResponse>){
                         color = Color.Gray
                     )
                     Column(
-                        modifier = Modifier.fillParentMaxSize().padding(start = 5.dp, bottom = 10.dp),
-                        horizontalAlignment = Alignment.End
+                        modifier = Modifier.fillMaxSize().padding(start = 5.dp, bottom = 10.dp),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         AsyncImage(
                             modifier = Modifier.size(160.dp),
