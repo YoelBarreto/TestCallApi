@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -33,7 +34,7 @@ import com.yoel.testcallapi.network.product.model.ProductResponse
 fun ProductListScreen(
     productViewModel: ProductViewModel,
     context: Context,
-    innerPaddingValues: PaddingValues
+    innerPadding: PaddingValues
 ) {
     val isLoading: Boolean by productViewModel.isLoading.observeAsState(initial = true)
     if (isLoading) {
@@ -89,9 +90,9 @@ fun CompleteProductListScreen(productList: List<ProductResponse>){
                         horizontalAlignment = Alignment.End
                     ) {
                         AsyncImage(
+                            modifier = Modifier.size(160.dp),
                             model = product.thumbnail,
                             contentDescription = "Imagen del producto",
-                            modifier = Modifier.padding(end = 10.dp)
                         )
                     }
                 }
