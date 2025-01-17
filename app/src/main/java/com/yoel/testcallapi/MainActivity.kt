@@ -29,9 +29,18 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-
+import androidx.room.Room
+import com.yoel.testcallapi.db.ProductDatabase
 
 class MainActivity : ComponentActivity() {
+    val db by lazy {
+        Room.databaseBuilder(
+            context = applicationContext,
+            klass = ProductDatabase::class.java,
+            name = "products.db"
+        ).build()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
