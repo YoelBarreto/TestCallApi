@@ -57,10 +57,10 @@ class MainActivity : ComponentActivity() {
                         composable("product_list_screen") {
                             ProductListScreen(productViewModel, context, innerPadding)
                         }
-                        composable("product_list_screen") {
+                        composable("favorite_list_screen") {
                             FavoriteListScreen()
                         }
-                        composable("product_list_screen") {
+                        composable("search_screen") {
                             SearchScreen()
                         }
                     }
@@ -73,9 +73,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun BottomBarItems(navController: NavHostController) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(30.dp, end = 30.dp),
+        modifier = Modifier.fillMaxWidth().padding(start = 30.dp, end = 30.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         IconButton(
             onClick = { navController.navigate("product_list_screen") }
@@ -83,6 +83,24 @@ fun BottomBarItems(navController: NavHostController) {
             Icon(
                 modifier = Modifier.fillMaxSize(),
                 imageVector = Icons.Filled.Home,
+                contentDescription = "Lista de productos"
+            )
+        }
+        IconButton(
+            onClick = { navController.navigate("favorite_list_screen") }
+        ) {
+            Icon(
+                modifier = Modifier.fillMaxSize(),
+                imageVector = Icons.Filled.Favorite,
+                contentDescription = "Lista de productos"
+            )
+        }
+        IconButton(
+            onClick = { navController.navigate("search_screen") }
+        ) {
+            Icon(
+                modifier = Modifier.fillMaxSize(),
+                imageVector = Icons.Filled.Search,
                 contentDescription = "Lista de productos"
             )
         }

@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 
 
 @Composable
-fun SearchScreen(){
+fun FavoriteListScreen() {
     Box() {
-        Text("Lista de Busqueda")
+        Text("Lista de favoritos")
     }
 }
