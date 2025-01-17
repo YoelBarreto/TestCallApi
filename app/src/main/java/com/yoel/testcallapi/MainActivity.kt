@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
         Room.databaseBuilder(
             context = applicationContext,
             klass = ProductDatabase::class.java,
-            name = "products.db"
+            name = "product.db"
         ).build()
     }
 
