@@ -79,7 +79,8 @@ fun CompleteProductListScreen(productList: List<ProductResponse>){
                 ) {
                     Text(
                         text = product.title,
-                        fontSize = TextUnit(5.5f, TextUnitType.Em)
+                        fontSize = TextUnit(5.5f, TextUnitType.Em),
+                        fontWeight = FontWeight.Bold
                     )
                     HorizontalDivider(
                         modifier = Modifier.padding(bottom = 10.dp),
