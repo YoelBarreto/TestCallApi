@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp") version "1.9.21-1.0.15"
 }
 
 android {
@@ -81,5 +82,17 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
+
+    implementation("androidx.room:room-runtime:2.6.1")
+
+    // https://mvnrepository.com/artifact/androidx.room/room-compiler
+    implementation("androidx.room:room-compiler:2.6.1")
+
+    ksp("androidx.room:room-compiler:2.6.1")
+
+    // https://mvnrepository.com/artifact/androidx.room/room-ktx
+    implementation("androidx.room:room-ktx:2.6.1")
+
+
 
 }

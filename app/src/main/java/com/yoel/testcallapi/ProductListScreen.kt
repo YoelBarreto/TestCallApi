@@ -1,6 +1,7 @@
 package com.yoel.testcallapi
 
 import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,9 +13,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
@@ -42,12 +48,15 @@ fun ProductListScreen(
         productViewModel.getAllProducts()
         LoadingScreen()
     } else {
-        CompleteProductListScreen(productList = productViewModel.productList.value!!)
+        CompleteProductListScreen(productList = productViewModel.productList.value!!, context)
     }
 }
 
 @Composable
-fun CompleteProductListScreen(productList: List<ProductResponse>){
+fun CompleteProductListScreen(
+    productList: List<ProductResponse>,
+    context: Context
+) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
@@ -75,13 +84,30 @@ fun CompleteProductListScreen(productList: List<ProductResponse>){
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
                     ),
-                    modifier = Modifier.width(260.dp).padding(bottom = 25.dp)
+                    modifier = Modifier.width(270.dp).padding(bottom = 25.dp)
                 ) {
-                    Text(
-                        text = product.title,
-                        fontSize = TextUnit(5.5f, TextUnitType.Em),
-                        fontWeight = FontWeight.Bold
-                    )
+                    Row(
+                        modifier = Modifier.padding(10.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = product.title,
+                            fontSize = TextUnit(5.5f, TextUnitType.Em),
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.weight(1f).padding(end = 10.dp)
+                        )
+                        FilledIconButton(
+                            modifier = Modifier.size(25.dp),
+                            onClick = {
+                                Toast.makeText(context, "Producto agregado a favoritos", Toast.LENGTH_SHORT).show()
+                            }
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.Add,
+                                contentDescription = "Agregar a favoritos"
+                            )
+                        }
+                    }
                     HorizontalDivider(
                         modifier = Modifier.padding(bottom = 10.dp),
                         thickness = 1.dp,
