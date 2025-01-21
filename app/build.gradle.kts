@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.devtools.ksp")
 }
 
@@ -62,37 +62,24 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
-
     // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-
     // https://mvnrepository.com/artifact/io.coil-kt/coil-compose
     implementation("io.coil-kt:coil-compose:2.7.0")
-
     // https://mvnrepository.com/artifact/io.coil-kt/coil-gif
     implementation("io.coil-kt:coil-gif:2.7.0")
-
     // https://mvnrepository.com/artifact/androidx.compose.runtime/runtime-livedata
     implementation("androidx.compose.runtime:runtime-livedata:1.7.6")
-
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.7")
-
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel-ktx
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
-
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
-
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation("androidx.room:room-runtime:2.6.1")
-
     // https://mvnrepository.com/artifact/androidx.room/room-compiler
     implementation("androidx.room:room-compiler:2.6.1")
-
     ksp("androidx.room:room-compiler:2.6.1")
-
     // https://mvnrepository.com/artifact/androidx.room/room-ktx
     implementation("androidx.room:room-ktx:2.6.1")
-
-
 
 }
